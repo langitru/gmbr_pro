@@ -1,0 +1,22 @@
+/* .navbar {
+    padding: .5rem 20rem;
+}
+.fixed-top {
+    position: relative;
+} */
+
+.btn-bd-download {
+    color: #777;
+    border: 2px solid #777;
+}
+.btn-bd-download:hover {
+    color: #ccc;
+    border: 2px solid #ccc;
+}
+.bd-navbar, .navbar-nav-svg {
+    width: 1rem !important;
+    height: 1rem !important;
+}
+main {
+    margin-top: 5rem;
+}
