@@ -32,3 +32,10 @@
 
 1. правка стилей
 2. добавлен favicon
+
+### allauth: v.0.0.6:
+
+1. pip install django-allauth
+2. подключена библиотека allauth
+3. зарегистрирован пользователь {'login': 'test1', 'paswd': 'test1test1'}
+4. Правка шаблона html
