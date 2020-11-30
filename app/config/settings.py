@@ -38,6 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +73,40 @@ TEMPLATES = [
         },
     },
 ]
+
+# ****************************************************************
+# *** *** *** *** *** *** ALLAUTH SETTING: *** *** *** *** *** ***
+
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
+
+# Provider specific settings
+# SOCIALACCOUNT_PROVIDERS = {
+#     'google': {
+#         # For each OAuth based provider, either add a ``SocialApp``
+#         # (``socialaccount`` app) containing the required client
+#         # credentials, or list them here:
+#         'APP': {
+#             'client_id': '123',
+#             'secret': '456',
+#             'key': ''
+#         }
+#     }
+# }
+
+
+# *** *** *** *** *** *** ALLAUTH SETTING END: *** *** *** *** ***
+# ****************************************************************
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
@@ -114,8 +154,13 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    # '/var/www/static/',
+    # ("downloads", "/opt/webfiles/stats"), #<a href="{% static "downloads/polls_20101022.tar.gz" %}">
+]
