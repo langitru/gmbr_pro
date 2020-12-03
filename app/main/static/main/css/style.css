@@ -5,6 +5,22 @@
     position: relative;
 } */
 
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 756px;
+}
+
+.user_profile_menu .nav-link {
+    padding: 0rem 1rem;
+}
+
+.user_profile_menu a svg {
+    width: 2rem;
+    height: 2rem;
+}
+
 .btn-bd-download {
     color: #777;
     border: 2px solid #777;
