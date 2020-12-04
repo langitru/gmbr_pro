@@ -46,7 +46,7 @@
                     </svg>
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="{% url 'user_profile' %}">Profile</a></li>
                     <li><a class="dropdown-item" href="{% url 'account_email' %}">Change E-mail</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="{% url 'account_logout' %}">Exit</a></li>
@@ -68,20 +68,20 @@
     <main role="main">
         <div class="wrap">
             <div class="container-lg">
+              {% if messages %}
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {% for message in messages %}
+                {{message}}
+                {% endfor %}
+                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+              </div>
+              {% endif %}
+
               {% block body %}
-
-                {% if messages %}
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                  {% for message in messages %}
-                  <p>{{message}}</p>
-                  {% endfor %}
-                  <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
-                </div>
-                {% endif %}
-
                 {% block content %}
                 {% endblock %}
               {% endblock %}
+
               {% block extra_body %}
               {% endblock %}
             </div>

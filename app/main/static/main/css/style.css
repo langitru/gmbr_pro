@@ -12,6 +12,10 @@ body {
     height: 756px;
 }
 
+h1 {
+    margin: 2rem 0;
+}
+
 .user_profile_menu .nav-link {
     padding: 0rem 1rem;
 }
@@ -41,6 +45,31 @@ main {
     color: #ffdd36;
 }
 
+.blockLabels .ctrlHolder {
+    padding: 0 0 5px 20px;
+}
+
+.blockLabels .buttonHolder {
+    padding-top: 20px;
+}
+
+.img-thumbnail {
+    border-radius: 0.7rem;
+    margin-bottom: 0.7rem;
+}
+
+.list-group-item, .list-group-item.disabled, .list-group-item:disabled {
+    background-color: #f3f3f3;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0.7rem;
+    border-top-right-radius: 0.7rem;
+}
+.list-group-item:last-child {
+    border-bottom-right-radius: 0.7rem;
+    border-bottom-left-radius: 0.7rem;
+}
 @media (min-width: 1200px) {
 
     .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {

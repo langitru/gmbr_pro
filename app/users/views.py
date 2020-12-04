@@ -6,3 +6,8 @@ def users_list(request):
         
     }
     return render(request, 'users/list.html', context=content)
+
+
+def user_profile(request):
+
+    return render(request, 'users/profile.html', context = {})

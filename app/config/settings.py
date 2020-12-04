@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,8 +44,6 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
-
 ]
 
 MIDDLEWARE = [
@@ -60,7 +57,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
-
 
 TEMPLATES = [
     {
@@ -80,7 +76,6 @@ TEMPLATES = [
 
 # ****************************************************************
 # *** *** *** *** *** *** ALLAUTH SETTING: *** *** *** *** *** ***
-
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -108,12 +103,15 @@ LOGIN_REDIRECT_URL = '/'
 #     }
 # }
 
-
 # *** *** *** *** *** *** ALLAUTH SETTING END: *** *** *** *** ***
 # ****************************************************************
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+# почта "крутится" в косоли и никуда не отправляется, чтобы это отключить закоментируй строку ниже,
+# и сообщения будут отправляться адресату
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
