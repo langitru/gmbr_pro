@@ -68,14 +68,8 @@
     <main role="main">
         <div class="wrap">
             <div class="container-lg">
-              {% if messages %}
-              <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                {% for message in messages %}
-                {{message}}
-                {% endfor %}
-                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
-              </div>
-              {% endif %}
+
+              {% include 'includes/messages.html' %}
 
               {% block body %}
                 {% block content %}
