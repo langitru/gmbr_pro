@@ -23,8 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls') ),
     path('users/', include('users.urls') ),
-    path('account/', include('allauth.urls')),
-    path('account/profile/', views_users.user_profile, name = 'user_profile'),
+    path('accounts/', include('allauth.urls')),
+    path('accounts/profile/', views_users.user_profile, name = 'user_profile'),
 
     
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
