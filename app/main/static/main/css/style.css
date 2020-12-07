@@ -70,6 +70,13 @@ main {
     border-bottom-right-radius: 0.7rem;
     border-bottom-left-radius: 0.7rem;
 }
+
+.btn-create-post {
+    padding: 9px 12px;
+}
+.btn-create-post .icon-btn {
+    margin-right: 7px;
+}
 @media (min-width: 1200px) {
 
     .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {

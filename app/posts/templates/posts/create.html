@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+
+{% block body %}
+<h1>Создание нового поста</h1>
+{% if errors %}
+    {{errors}}
+{% endif %}
+<form method="POST">
+    {% csrf_token %}
+<!-- 
+    {{ form.title }}<br>
+    {{ form.anons }}<br>
+    {{ form.full_text }}<br>
+    {{ form.date_public }}<br> -->
+    
+    {% for field in form %}
+        {{ field }}<br>
+    {% endfor %}
+
+    <button class="btn btn-primary" type="submit" >Create</button>
+</form>
+
+{% endblock %}
+

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class Posts(models.Model):
@@ -6,7 +7,7 @@ class Posts(models.Model):
     title = models.CharField('Название', max_length=180, default='')
     anons = models.CharField('Анонс', max_length=255, default='')
     full_text = models.TextField('Статья')
-    date_public = models.DateTimeField('Дата публикации')
+    date_public = models.DateTimeField('Дата публикации', help_text='Укажите дату публикации!' )
 
     def __str__(self):
         return self.title
