@@ -1,0 +1,14 @@
+{% extends "users/profile_base.html" %}
+
+
+
+{% block content %}
+{% if user.is_authenticated %}
+    <h1>{{ user.last_name }} {{ user.first_name }}</h1>
+{% else %}
+    <h1>Profile user</h1>
+{% endif %}
+
+
+{% endblock %}
+

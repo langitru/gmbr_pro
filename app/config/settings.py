@@ -11,6 +11,15 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-secondary',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+ }
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +36,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,13 +45,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main',
-
     'django.contrib.sites',
 
+    'main',
+    
+    'users',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.google', #for google auth
 ]
 
 MIDDLEWARE = [
@@ -57,7 +67,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
-
 
 TEMPLATES = [
     {
@@ -77,7 +86,6 @@ TEMPLATES = [
 
 # ****************************************************************
 # *** *** *** *** *** *** ALLAUTH SETTING: *** *** *** *** *** ***
-
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -105,12 +113,15 @@ LOGIN_REDIRECT_URL = '/'
 #     }
 # }
 
-
 # *** *** *** *** *** *** ALLAUTH SETTING END: *** *** *** *** ***
 # ****************************************************************
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+# почта "крутится" в косоли и никуда не отправляется, чтобы это отключить закоментируй строку ниже,
+# и сообщения будут отправляться адресату
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases

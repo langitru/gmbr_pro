@@ -25,7 +25,10 @@
               </li>
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link" href="/admin/">Admin</a>
-              </li>              
+              </li>    
+              <li class="nav-item col-6 col-md-auto">
+                <a class="nav-link" href="{% url 'users_list' %}">Users</a>
+              </li>                         
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
               </li>
@@ -43,7 +46,7 @@
                     </svg>
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="{% url 'user_profile' %}">Profile</a></li>
                     <li><a class="dropdown-item" href="{% url 'account_email' %}">Change E-mail</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="{% url 'account_logout' %}">Exit</a></li>
@@ -65,20 +68,14 @@
     <main role="main">
         <div class="wrap">
             <div class="container-lg">
+
+              {% include 'includes/messages.html' %}
+
               {% block body %}
-
-                {% if messages %}
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                  {% for message in messages %}
-                  <p>{{message}}</p>
-                  {% endfor %}
-                  <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
-                </div>
-                {% endif %}
-
                 {% block content %}
                 {% endblock %}
               {% endblock %}
+
               {% block extra_body %}
               {% endblock %}
             </div>

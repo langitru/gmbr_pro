@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% load i18n %}
+
+{% block body %}
+
+<div class="row " role="tabpanel">
+
+    <div class="col-9 content_profil">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="col-3">
+        <img src="https://cs8.pikabu.ru/avatars/2482/x2482742-684658618.png" class="img-thumbnail" alt="...">
+        <div class="list-group">
+            <a href="{% url 'user_profile' %}" class="list-group-item list-group-item-action">Profile</a>
+            <a href="{% url 'account_email' %}" class="list-group-item list-group-item-action">Change email</a>
+            <a href="{% url 'account_change_password' %}" class="list-group-item list-group-item-action">{% trans "Change Password" %}</a>
+            <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Disabled</a>
+        </div>
+    </div>    
+  </div>
+
+
+
+{% endblock %}
+

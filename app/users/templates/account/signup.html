@@ -1,0 +1,73 @@
+{% extends "main/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-md-center">
+  <div class="col-md-6">
+<h1>{% trans "Sign Up" %}</h1>
+
+<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+
+
+
+<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+
+{% csrf_token %}
+
+
+<div class="mb-3">
+  <input id="login-username" type="text" class="form-control" name="username" value="{{username}}" placeholder="Имя пользователя" required>
+  {% if form.username.errors %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{ form.username.errors|safe }}
+      <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+    </button>
+  </div>
+  {% endif %}
+</div>
+<div class="mb-3">
+  <input id="login-email" type="email" class="form-control" name="email" value="" placeholder="E-mail адрес">
+  {% if form.email.errors %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{ form.email.errors|safe }}
+      <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+    </button>
+  </div>
+  {% endif %}
+</div>  
+<div class="mb-3">
+  <input type="password" class="form-control" id="exampleInputPassword1" name="password1" placeholder="Пароль">
+  {% if form.password1.errors %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{ form.password1.errors|safe }}
+      <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+    </button>
+  </div>
+  {% endif %}
+</div>
+<div class="mb-3">
+  <input type="password" class="form-control" id="exampleInputPassword1" name="password2" placeholder="Пароль (ещё раз)">
+  {% if form.password2.errors %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{ form.password2.errors|safe }}
+      <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+    </button>
+  </div>
+  {% endif %}
+</div>  
+
+
+{% if redirect_field_value %}
+<div class="mb-3 form-check">
+  <input type="hidden" class="form-control" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+</div>
+{% endif %}
+
+<button type="submit" class="btn btn-primary">{% trans "Sign Up" %} &raquo;</button>
+</form>
+</div>
+</div>
+{% endblock %}
