@@ -19,4 +19,7 @@ from . import views
 urlpatterns = [
     path('', views.posts_list, name = 'posts_list'),
     path('create/', views.create, name = 'post_create'),
+    path('<int:pk>', views.PostDetailView.as_view(), name = 'post_show'),
+    path('<int:pk>/update', views.PostUpdateView.as_view(), name = 'post_update'),
+    path('<int:pk>/delete', views.PostDeleteView.as_view(), name = 'post_delete'),
 ]

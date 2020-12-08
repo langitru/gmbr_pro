@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Posts
 from .forms import PostsForm
+from django.views.generic import DetailView, UpdateView, DeleteView
 
 # Create your views here.
 def posts_list(request):
@@ -31,3 +32,26 @@ def create(request):
         'errors': errors,
     }
     return render(request, 'posts/create.html', context=data)    
+
+
+class PostDetailView(DetailView):
+    model = Posts
+    template_name = 'posts/show.html'
+    context_object_name = 'post'
+
+
+class PostUpdateView(UpdateView):
+    model = Posts
+    template_name = 'posts/update.html'
+    
+    form_class = PostsForm
+    # fields = ['title', 'anons', 'full_text', 'date_public']
+    # context_object_name = 'post'    
+
+
+class PostDeleteView(DeleteView):
+    model = Posts
+    template_name = 'posts/delete.html'
+    success_url = '/posts/'
+    context_object_name = 'post'
+       

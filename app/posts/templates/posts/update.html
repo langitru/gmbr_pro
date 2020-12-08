@@ -1,9 +1,9 @@
 {% extends 'main/base.html' %}
 
-{% block head_title %}Создание нового поста{% endblock %}
+{% block head_title %}Редактирование поста{% endblock %}
 
 {% block body %}
-<h1>Создание нового поста</h1>
+<h1>Редактирование поста</h1>
 {% if errors %}
     {{errors}}
 {% endif %}
@@ -19,7 +19,7 @@
         {{ field }}<br>
     {% endfor %}
 
-    <button class="btn btn-primary" type="submit" >Create</button>
+    <button class="btn btn-primary" type="submit" >Сохранить</button>
 </form>
 
 {% endblock %}
