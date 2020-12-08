@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+{% block head_title %}Удаление поста{% endblock %}
+
+{% block body %}
+<h1>{{ post.title }}</h1>
+<p>Вы уверены что хотите удалить данный пост?</p>
+{% if errors %}
+    {{errors}}
+{% endif %}
+<form method="POST">
+    {% csrf_token %}
+
+    <button class="btn btn-danger" type="submit" >Удалить пост</button>
+</form>
+
+{% endblock %}
+
